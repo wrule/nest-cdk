@@ -30,7 +30,7 @@ export class NestCdkStack extends Stack {
     const app = new amplify.CfnApp(this, 'AmplifyApp', {
       name: 'next-cdk',
       repository: 'https://github.com/wrule/next-cdk.git',
-      accessToken: SecretValue.unsafePlainText('github_token').toString(),
+      accessToken: SecretValue.unsafePlainText('new_github_token').unsafeUnwrap(),
       buildSpec: buildSpec.toString(),
     });
 
