@@ -30,7 +30,6 @@ export class NestCdkStack extends Stack {
     const app = new amplify.CfnApp(this, 'AmplifyApp', {
       name: 'my-app',
       repository: 'https://github.com/your-repo',
-      accessToken: 'your-token',
       buildSpec: buildSpec.toString()
     });
 
