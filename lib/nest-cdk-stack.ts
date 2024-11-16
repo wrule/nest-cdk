@@ -1,4 +1,4 @@
-import { Stack, StackProps } from 'aws-cdk-lib';
+import { SecretValue, Stack, StackProps } from 'aws-cdk-lib';
 import * as amplify from 'aws-cdk-lib/aws-amplify';
 import { BuildSpec } from 'aws-cdk-lib/aws-codebuild';
 import { Construct } from 'constructs';
@@ -30,6 +30,7 @@ export class NestCdkStack extends Stack {
     const app = new amplify.CfnApp(this, 'AmplifyApp', {
       name: 'next-cdk',
       repository: 'https://github.com/wrule/next-cdk.git',
+      accessToken: SecretValue.unsafePlainText('github_token').toString(),
       buildSpec: buildSpec.toString(),
     });
 
