@@ -28,14 +28,14 @@ export class NestCdkStack extends Stack {
     });
 
     const app = new amplify.CfnApp(this, 'AmplifyApp', {
-      name: 'my-app',
-      repository: 'https://github.com/your-repo',
-      buildSpec: buildSpec.toString()
+      name: 'next-cdk',
+      repository: 'https://github.com/wrule/next-cdk.git',
+      buildSpec: buildSpec.toString(),
     });
 
     new amplify.CfnBranch(this, 'MainBranch', {
       appId: app.attrAppId,
-      branchName: 'main'
+      branchName: 'main',
     });
   }
 }
